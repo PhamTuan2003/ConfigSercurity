@@ -1,0 +1,19 @@
+server:
+  port: 8081
+
+spring:
+  datasource:
+    jdbc-url: jdbc:mysql://localhost:3306/ezpark?useSSL=false&serverTimezone=UTC
+    username: root
+    password: mixi2004
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+
+  jwt:
+    secret_key: WoOXNLcTzDlQqjp2JzMNJ7+fi7UQ3O8FAselbtKQSgM=
