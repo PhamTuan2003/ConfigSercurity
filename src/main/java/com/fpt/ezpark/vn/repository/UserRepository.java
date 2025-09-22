@@ -1,6 +1,6 @@
 package com.fpt.ezpark.vn.repository;
 
-import com.fpt.ezpark.vn.model.User;
+import com.fpt.ezpark.vn.model.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

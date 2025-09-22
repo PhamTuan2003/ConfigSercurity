@@ -17,3 +17,19 @@ spring:
 
   jwt:
     secret_key: WoOXNLcTzDlQqjp2JzMNJ7+fi7UQ3O8FAselbtKQSgM=
+
+  # ACL Configuration
+  security:
+    acl:
+      # Cache configuration
+      cache:
+        enabled: true
+        cache-type: map
+      # Database configuration
+      jdbc:
+        initialize-schema: always
+        data-source-ref: dataSource
+
+logging:
+  level:
+    org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer: ERROR

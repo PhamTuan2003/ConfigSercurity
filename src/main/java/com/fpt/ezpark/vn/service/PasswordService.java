@@ -1,4 +1,4 @@
-package com.fpt.ezpark.vn.repository.service;
+package com.fpt.ezpark.vn.service;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

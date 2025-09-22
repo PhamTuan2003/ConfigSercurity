@@ -20,10 +20,10 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.fpt.ezpark.vn.configuration.security.PermissionService;
-import com.fpt.ezpark.vn.model.Possession;
-import com.fpt.ezpark.vn.model.User;
-import com.fpt.ezpark.vn.repository.impl.PossessionService;
-import com.fpt.ezpark.vn.repository.impl.UserService;
+import com.fpt.ezpark.vn.model.entity.Possession;
+import com.fpt.ezpark.vn.model.entity.User;
+import com.fpt.ezpark.vn.service.PossessionService;
+import com.fpt.ezpark.vn.service.UserService;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -83,8 +83,6 @@ public class PossessionController {
         }
         return new ResponseEntity<>("Permission granted", HttpStatus.OK);
     }
-
-    //
 
     @RequestMapping(params = "form", method = RequestMethod.GET)
     public String createForm(@ModelAttribute final Possession possession) {

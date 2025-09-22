@@ -1,6 +1,6 @@
-package com.fpt.ezpark.vn.repository.impl;
+package com.fpt.ezpark.vn.service;
 
-import com.fpt.ezpark.vn.model.Possession;
+import com.fpt.ezpark.vn.model.entity.Possession;
 
 import java.util.List;
 
@@ -14,4 +14,3 @@ public interface PossessionService {
 
     Possession save(Possession possession);
 }
-

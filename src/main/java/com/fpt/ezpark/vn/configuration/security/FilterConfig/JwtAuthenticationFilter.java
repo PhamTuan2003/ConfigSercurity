@@ -1,6 +1,6 @@
 package com.fpt.ezpark.vn.configuration.security.FilterConfig;
 
-import com.fpt.ezpark.vn.repository.service.JwtService;
+import com.fpt.ezpark.vn.service.JwtService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

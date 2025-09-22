@@ -1,9 +1,9 @@
-package com.fpt.ezpark.vn.repository.service;
+package com.fpt.ezpark.vn.service.impl;
 
-import com.fpt.ezpark.vn.model.Possession;
+import com.fpt.ezpark.vn.model.entity.Possession;
 import com.fpt.ezpark.vn.repository.PossessionRepository;
+import com.fpt.ezpark.vn.service.PossessionService;
 
-import com.fpt.ezpark.vn.repository.impl.PossessionService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

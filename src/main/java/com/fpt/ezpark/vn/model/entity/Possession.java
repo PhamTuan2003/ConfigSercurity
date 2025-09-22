@@ -1,4 +1,4 @@
-package com.fpt.ezpark.vn.model;
+package com.fpt.ezpark.vn.model.entity;
 
 
 import jakarta.persistence.*;

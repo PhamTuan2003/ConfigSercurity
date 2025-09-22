@@ -1,14 +1,15 @@
-package com.fpt.ezpark.vn.repository.service;
+package com.fpt.ezpark.vn.service.impl;
 
 import org.springframework.security.acls.domain.BasePermission;
 import org.springframework.stereotype.Service;
 
 import com.fpt.ezpark.vn.common.utill.validation.EmailExistsException;
 import com.fpt.ezpark.vn.configuration.security.PermissionService;
-import com.fpt.ezpark.vn.model.User;
+import com.fpt.ezpark.vn.model.entity.User;
 import com.fpt.ezpark.vn.model.DTO.request.UserRequestDTO;
 import com.fpt.ezpark.vn.repository.UserRepository;
-import com.fpt.ezpark.vn.repository.impl.UserService;
+import com.fpt.ezpark.vn.service.UserService;
+import com.fpt.ezpark.vn.service.PasswordService;
 
 import lombok.RequiredArgsConstructor;
 

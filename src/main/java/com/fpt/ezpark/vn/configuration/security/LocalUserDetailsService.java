@@ -1,10 +1,8 @@
 package com.fpt.ezpark.vn.configuration.security;
 
-import com.fpt.ezpark.vn.model.User;
-import com.fpt.ezpark.vn.repository.UserRepository;
-import com.fpt.ezpark.vn.repository.impl.UserService;
+import com.fpt.ezpark.vn.model.entity.User;
+import com.fpt.ezpark.vn.service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

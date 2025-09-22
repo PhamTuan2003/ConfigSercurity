@@ -1,10 +1,15 @@
 package com.fpt.ezpark.vn.common.utill.validation;
 
-import com.fpt.ezpark.vn.model.User;
+import org.springframework.stereotype.Component;
+
+import com.fpt.ezpark.vn.model.entity.User;
+import com.fpt.ezpark.vn.model.DTO.request.UserRequestDTO;
+
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 
-public class PasswordMatchesValidator implements  ConstraintValidator<PasswordMatches, User> {
+@Component
+public class PasswordMatchesValidator implements ConstraintValidator<PasswordMatches, Object> {
 
     @Override
     public void initialize(final PasswordMatches constraintAnnotation) {
@@ -12,12 +17,23 @@ public class PasswordMatchesValidator implements  ConstraintValidator<PasswordMa
     }
 
     @Override
-    public boolean isValid(User user, ConstraintValidatorContext context) {
-        if (user == null) {
+    public boolean isValid(Object obj, ConstraintValidatorContext context) {
+        if (obj == null) {
             return false;
         }
-        String password = user.getPassword();
-        String confirm = user.getPasswordConfirmation();
+
+        String password;
+        String confirm;
+
+        if (obj instanceof User user) {
+            password = user.getPassword();
+            confirm = user.getPasswordConfirmation();
+        } else if (obj instanceof UserRequestDTO userRequestDTO) {
+            password = userRequestDTO.getPassword();
+            confirm = userRequestDTO.getPasswordConfirmation();
+        } else {
+            return false;
+        }
 
         if (password == null || confirm == null) {
             return false;

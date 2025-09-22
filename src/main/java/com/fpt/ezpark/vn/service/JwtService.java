@@ -1,4 +1,4 @@
-package com.fpt.ezpark.vn.repository.service;
+package com.fpt.ezpark.vn.service;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

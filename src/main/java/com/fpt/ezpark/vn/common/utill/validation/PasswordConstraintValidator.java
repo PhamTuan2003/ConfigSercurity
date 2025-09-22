@@ -1,13 +1,19 @@
 package com.fpt.ezpark.vn.common.utill.validation;
-import jakarta.validation.ConstraintValidator;
-import jakarta.validation.ConstraintValidatorContext;
-
-import org.passay.*;
 
 import java.util.Arrays;
 
-public class PasswordConstraintValidator implements ConstraintValidator<ValidPassword, String> {
+import org.passay.LengthRule;
+import org.passay.PasswordData;
+import org.passay.PasswordValidator;
+import org.passay.RuleResult;
+import org.passay.WhitespaceRule;
+import org.springframework.stereotype.Component;
 
+import jakarta.validation.ConstraintValidator;
+import jakarta.validation.ConstraintValidatorContext;
+
+@Component
+public class PasswordConstraintValidator implements ConstraintValidator<ValidPassword, String> {
 
     @Override
     public void initialize(ValidPassword constraintAnnotation) {
@@ -22,8 +28,7 @@ public class PasswordConstraintValidator implements ConstraintValidator<ValidPas
 
         PasswordValidator validator = new PasswordValidator(Arrays.asList(
                 new LengthRule(8, 30),
-                new WhitespaceRule()
-        ));
+                new WhitespaceRule()));
 
         RuleResult result = validator.validate(new PasswordData(password));
 
