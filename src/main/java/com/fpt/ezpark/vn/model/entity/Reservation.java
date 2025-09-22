@@ -10,9 +10,6 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -29,17 +26,14 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(callSuper = true)
 public class Reservation extends BaseEntity {
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "parking_lot_id", nullable = false)
-    private ParkingLot parkingLot;
+    @Column(name = "parking_lot_id", nullable = false)
+    private Long parkingLotId;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "slot_id", nullable = false)
-    private Slot slot;
+    @Column(name = "slot_id", nullable = false)
+    private Long slotId;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "customer_id", nullable = false)
-    private User customer;
+    @Column(name = "customer_id", nullable = false)
+    private Long customerId;
 
     @Column(name = "start_time", nullable = false)
     private LocalDateTime startTime;
@@ -69,5 +63,4 @@ public class Reservation extends BaseEntity {
 
     @Column(name = "notes")
     private String notes;
-
 }

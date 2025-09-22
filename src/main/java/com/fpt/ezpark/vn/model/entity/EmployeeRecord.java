@@ -8,15 +8,13 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+
 
 @Entity
 @Table(name = "employee_record")
@@ -27,19 +25,17 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(callSuper = true)
 public class EmployeeRecord extends BaseEntity {
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    @Column(name = "user_id", nullable = false)
+    private Long userId; // FK -> User.id
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "parking_lot_id", nullable = false)
-    private ParkingLot parkingLot;
+    @Column(name = "parking_lot_id", nullable = false)
+    private Long parkingLotId; // FK -> ParkingLot.id
 
     @Column(name = "role_in_lot", nullable = false)
-    private String roleInLot; // MANAGER, STAFF, SECURITY, etc.
+    private String roleInLot; // MANAGER, STAFF...
 
     @Column(name = "shift")
-    private String shift; // MORNING, AFTERNOON, NIGHT, FULL_TIME
+    private String shift;
 
     @Column(name = "salary")
     private Double salary;
@@ -53,5 +49,4 @@ public class EmployeeRecord extends BaseEntity {
     @Column(name = "status", nullable = false)
     @Enumerated(EnumType.STRING)
     private EmployeeStatus status;
-
 }

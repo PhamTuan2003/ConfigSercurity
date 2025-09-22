@@ -46,7 +46,7 @@ public class ParkingLotServiceImpl implements ParkingLotService {
                 .depositRequired(request.getDepositRequired())
                 .latitude(request.getLatitude())
                 .longitude(request.getLongitude())
-                .owner(owner)
+                .ownerId(owner.getId())
                 .status(ParkingLotStatus.ACTIVE)
                 .build();
 
@@ -81,7 +81,7 @@ public class ParkingLotServiceImpl implements ParkingLotService {
         if (owner == null) {
             throw new RuntimeException("Owner not found: " + ownerUsername);
         }
-        return parkingLotRepository.findByOwner(owner);
+        return parkingLotRepository.findByOwnerId(owner.getId());
     }
 
     @Override

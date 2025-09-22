@@ -6,9 +6,6 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -25,11 +22,10 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(callSuper = true)
 public class Vehicle extends BaseEntity {
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "owner_id", nullable = false)
-    private User owner;
+    @Column(name = "owner_id", nullable = false)
+    private Long ownerId; // FK -> User.id
 
-    @Column(name = "license_plate", nullable = false)
+    @Column(name = "license_plate", nullable = false, unique = true)
     private String licensePlate;
 
     @Column(name = "vehicle_type", nullable = false)
@@ -49,13 +45,6 @@ public class Vehicle extends BaseEntity {
     private Integer year;
 
     @Column(name = "is_active", nullable = false)
-    private Boolean isActive;
-
-    @Override
-    protected void onCreate() {
-        super.onCreate();
-        if (isActive == null) {
-            isActive = true;
-        }
-    }
+    private Boolean isActive = true;
 }
+

@@ -5,10 +5,7 @@ package com.fpt.ezpark.vn.common.constant;
  */
 public enum SlotType {
     REGULAR("Thường"),
-    PREMIUM("Cao cấp"),
-    HANDICAP("Dành cho người khuyết tật"),
-    MOTORCYCLE("Xe máy"),
-    ELECTRIC_VEHICLE("Xe điện");
+    PREMIUM("Cao cấp");
 
     private final String description;
 

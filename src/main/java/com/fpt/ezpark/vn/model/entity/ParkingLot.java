@@ -56,7 +56,7 @@ public class ParkingLot extends BaseEntity {
     private ParkingLotStatus status;
 
     @Column(name = "policies")
-    private String policies; // JSON string for parking policies
+    private String policies;
 
     @Column(name = "deposit_required")
     private BigDecimal depositRequired;
@@ -67,15 +67,12 @@ public class ParkingLot extends BaseEntity {
     @Column(name = "longitude")
     private Double longitude;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "owner_id", nullable = false)
-    private User owner;
+    @Column(name = "owner_id", nullable = false)
+    private Long ownerId; // FK -> User.id
 
     @Override
     protected void onCreate() {
         super.onCreate();
-        if (availableSlots == null) {
-            availableSlots = capacity;
-        }
+        if (availableSlots == null) availableSlots = capacity;
     }
 }

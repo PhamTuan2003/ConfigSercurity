@@ -12,9 +12,9 @@ import com.fpt.ezpark.vn.model.entity.User;
 @Repository
 public interface ParkingLotRepository extends JpaRepository<ParkingLot, Long> {
 
-    List<ParkingLot> findByOwner(User owner);
+    List<ParkingLot> findByOwnerId(Long ownerId);
 
     List<ParkingLot> findByStatus(ParkingLotStatus status);
 
-    List<ParkingLot> findByOwnerAndStatus(User owner, ParkingLotStatus status);
+    List<ParkingLot> findByOwnerIdAndStatus(Long ownerId, ParkingLotStatus status);
 }

@@ -23,21 +23,15 @@ public class PasswordMatchesValidator implements ConstraintValidator<PasswordMat
         }
 
         String password;
-        String confirm;
 
         if (obj instanceof User user) {
             password = user.getPassword();
-            confirm = user.getPasswordConfirmation();
         } else if (obj instanceof UserRequestDTO userRequestDTO) {
             password = userRequestDTO.getPassword();
-            confirm = userRequestDTO.getPasswordConfirmation();
         } else {
             return false;
         }
 
-        if (password == null || confirm == null) {
-            return false;
-        }
-        return password.equals(confirm);
+        return true;
     }
 }
